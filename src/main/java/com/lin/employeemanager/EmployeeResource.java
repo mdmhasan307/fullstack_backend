@@ -2,6 +2,7 @@ package com.lin.employeemanager;
 
 import com.lin.employeemanager.model.Employee;
 import com.lin.employeemanager.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ public class EmployeeResource {
 
     private final EmployeeService employeeService;
 
+    @Autowired
     public EmployeeResource(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
@@ -46,9 +48,5 @@ public class EmployeeResource {
         employeeService.deleteEmployee(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-
-
-
 
 }
